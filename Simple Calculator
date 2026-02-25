@@ -1,0 +1,86 @@
+import java.util.Scanner;
+
+class Main {
+    static float add(float num1 , float num2) {
+        return num1 + num2;
+    }
+    
+    static float subtract(float num1 , float num2) {
+        return num1 - num2;
+    }
+    
+    static float multiply(float num1 , float num2) {
+        float result = 0;
+        while(num2-- != 0) {
+            result += num1;
+        }
+        return result;
+    }
+    
+    static float divide(float num1 , float num2) {
+        float steps = 0;
+        while(num1 != 0) {
+            num1 -= num2;
+            steps++;
+        }
+        return steps;
+    }
+    
+    static float power(float num1 , float num2) {
+        float result = 1;
+        while(num2-- != 0) {
+            result = multiply(result, num1);
+        }
+        return result;
+    }
+    
+    public static void main(String[] args) {
+            System.out.println("Welcome to MAA's Calculator\n");
+        while(true) {
+            System.out.println("*****Menu*****");
+            System.out.println("1) Addition");
+            System.out.println("2) Subtraction");
+            System.out.println("3) Multiplication");
+            System.out.println("4) Division");
+            System.out.println("5) Power");
+            System.out.println("6) Exit\n");
+            
+            Scanner input = new Scanner(System.in);
+            System.out.print("Choose the operation: ");
+            byte operation = input.nextByte();
+            System.out.println();
+            
+            if(operation == 6) {
+                System.out.print("Program has finished.");
+                break;
+            }
+            
+            System.out.print("Enter first number: ");
+            float num1 = input.nextFloat();
+            System.out.print("Enter second number: ");
+            float num2 = input.nextFloat();
+            
+            switch(operation) {
+                case 1:
+                    System.out.println(num1 + " + " + num2 + " = " + add(num1, num2) + "\n");
+                    break;
+                case 2:
+                    System.out.println(num1 + " - " + num2 + " = " + subtract(num1, num2) + "\n");
+                    break;
+                case 3:
+                    System.out.println(num1 + " * " + num2 + " = " + multiply(num1, num2) + "\n");
+                    break;
+                case 4:
+                    System.out.println(num1 + " / " + num2 + " = " + divide(num1, num2) + "\n");
+                    break;
+                case 5:
+                    System.out.println(num1 + " ^ " + num2 + " = " + power(num1, num2) + "\n");
+                    break;
+                default:
+                    System.out.println("Invalid Input." + "\n");
+            }
+            
+            System.out.println("***************************************************************\n");
+        }
+    }
+}
